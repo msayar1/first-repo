@@ -19,8 +19,8 @@ public class Driver {
 		if(driver==null) {
 		switch (ConfigurationReader.getProperty("browser")) {
 		case "chrome":
-			WebDriverManager.chromedriver().setup();
-			driver = new ChromeDriver();
+			WebDriverManager.chromedriver().setup(); 
+			driver = new ChromeDriver(); //polymorphism
 			driver.manage().window().maximize();
 			driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
 			return driver;
