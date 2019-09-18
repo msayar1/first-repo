@@ -7,7 +7,7 @@ import cucumber.api.junit.Cucumber;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(plugin = { "pretty", "html:target/site/cucumber-pretty","json:target/cucumber.json" }, 
-				features = "src/test/resources/feature-tests", 
+				features = "src/test/resources/api-tests", 
 				glue = {"rest.a" }, 
 				tags = { "@ApiTesting" }, 
 				dryRun = false)
