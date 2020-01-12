@@ -22,7 +22,9 @@ public class ApiTesting {
 		JsonObject requestBody = new JsonObject();
 		requestBody.addProperty("first_name", "Sait");
 		requestBody.addProperty("last_name", "Sayar");
-		given().when().contentType("application/json").body(requestBody.toString()).and().post("/actor")
+		
+		given().contentType("application/json").body(requestBody.toString())
+		.when().and().post("/actor")
 		.then().statusCode(201);   
 	}
 
@@ -32,8 +34,9 @@ public class ApiTesting {
 		Response response = given().when().get("/actor?first_name=eq.Sait");
 		int id = response.body().jsonPath().get("[0].actor_id");
 
-		given().when().contentType("application/json").and().delete("/actor?actor_id=eq." 
-		+ id).then().statusCode(204);  
+		given().contentType("application/json")
+		.when().delete("/actor?actor_id=eq."+ id)
+		.then().statusCode(204);  
 	}
 
 	@Then("retrieve all actors and print them")
